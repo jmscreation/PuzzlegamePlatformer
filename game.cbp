@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="PuzzleGame Platformer" />
+		<Option pch_mode="2" />
+		<Option compiler="gnu_gcc_730_compiler" />
+		<Build>
+			<Target title="PuzzleGame 64bit">
+				<Option output="platformer64" prefix_auto="1" extension_auto="1" />
+				<Option object_output=".64objs" />
+				<Option type="0" />
+				<Option compiler="gnu_gcc_730_64bit_compiler" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-m64" />
+					<Add directory="./library/SFML-2.5.1-64/include" />
+				</Compiler>
+				<Linker>
+					<Add option="-m64" />
+					<Add library="./library/libengine64-s.a" />
+					<Add library="./library/libportaudio64-s.a" />
+					<Add directory="./library/SFML-2.5.1-64/lib" />
+				</Linker>
+			</Target>
+			<Target title="PuzzleGame">
+				<Option output="platformer" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gnu_gcc_730_compiler" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add directory="./library/SFML-2.5.1/include" />
+				</Compiler>
+				<Linker>
+					<Add library="./library/libengine-s.a" />
+					<Add library="./library/libportaudio-s.a" />
+					<Add directory="./library/SFML-2.5.1/lib" />
+				</Linker>
+			</Target>
+			<Target title="PuzzleGame Debug 64bit">
+				<Option output="platformer-debug64" prefix_auto="1" extension_auto="1" />
+				<Option object_output=".64objs" />
+				<Option type="1" />
+				<Option compiler="gnu_gcc_730_64bit_compiler" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-m64" />
+					<Add directory="./library/SFML-2.5.1-64/include" />
+				</Compiler>
+				<Linker>
+					<Add option="-m64" />
+					<Add library="./library/libengine64-s.a" />
+					<Add library="./library/libportaudio64-s.a" />
+					<Add directory="./library/SFML-2.5.1-64/lib" />
+				</Linker>
+			</Target>
+			<Target title="PuzzleGame Debug">
+				<Option output="platformer-debug" prefix_auto="1" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gnu_gcc_730_compiler" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add directory="./library/SFML-2.5.1/include" />
+				</Compiler>
+				<Linker>
+					<Add library="./library/libengine-s.a" />
+					<Add library="./library/libportaudio-s.a" />
+					<Add directory="./library/SFML-2.5.1/lib" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-O3" />
+			<Add option="-std=c++14" />
+			<Add option="-DSFML_STATIC" />
+			<Add directory="./library/engine" />
+			<Add directory="engine" />
+			<Add directory="game/" />
+			<Add directory="game" />
+		</Compiler>
+		<Linker>
+			<Add option="-s" />
+			<Add option="-static-libstdc++" />
+			<Add option="-static-libgcc" />
+			<Add option="-static" />
+			<Add option="-static -lpthread" />
+			<Add library="sfml-graphics-s" />
+			<Add library="sfml-window-s" />
+			<Add library="sfml-system-s" />
+			<Add library="sfml-network-s" />
+			<Add library="winmm" />
+			<Add library="opengl32" />
+			<Add library="gdi32" />
+			<Add library="freetype" />
+			<Add library="ws2_32" />
+			<Add library="comdlg32" />
+		</Linker>
+		<Unit filename="defines.h" />
+		<Unit filename="game/background.cpp" />
+		<Unit filename="game/background.h" />
+		<Unit filename="game/boxobj.cpp" />
+		<Unit filename="game/boxobj.h" />
+		<Unit filename="game/includes.h" />
+		<Unit filename="game/itemobj.cpp" />
+		<Unit filename="game/itemobj.h" />
+		<Unit filename="game/playerobj.cpp">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/playerobj.h" />
+		<Unit filename="game/puzzlegame.cpp" />
+		<Unit filename="game/puzzlegame.h" />
+		<Unit filename="game/resource.h" />
+		<Unit filename="game/resources.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="game/wallobj.cpp" />
+		<Unit filename="game/wallobj.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="main.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

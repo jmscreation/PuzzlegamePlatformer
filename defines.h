@@ -1,15 +1,16 @@
-#ifndef __DEFINES_H_FILE__
-#define __DEFINES_H_FILE__
+#ifndef __DEFINES_H__
+#define __DEFINES_H__
 
-//Engine Defines:
+#define APP_CLASS PuzzleGame
+#define USE_AUDIO
+#define ARB_GRID_CELLS 1024
+//#define LOAD_FROM_FILE
 
-#define APP_CLASS GameApp        //Class name for your game
-#define USE_AUDIO               //Includes audio library if audio is needed for your game
-//#define ARB_GRID_CELLS 1024   //Used to determine the size of the arbitrary grid cell size
+#define DTR 0.01745329251
 
+#define OBJ_PLAYER 1
+#define OBJ_WALL 2
+#define OBJ_ITEM 3
+#define OBJ_BOX 4
 
-
-
-
-
-#endif // __DEFINES_H_FILE__
+#endif // __DEFINES_H__
