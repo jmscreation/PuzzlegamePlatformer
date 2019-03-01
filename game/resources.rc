@@ -1,0 +1,14 @@
+
+#include "resource.h"
+
+PNG_PLAYER   RCDATA    "images/player.png"
+PNG_WALL   RCDATA    "images/wall.jpg"
+PNG_ITEM   RCDATA    "images/item.png"
+PNG_BOX   RCDATA    "images/box.png"
+PNG_BACKGROUND   RCDATA    "images/background.png"
+
+OGG_MUSIC   RCDATA    "audio/music.ogg"
+OGG_SWOOSH  RCDATA    "audio/swoosh.ogg"
+OGG_ITEM    RCDATA    "audio/item.ogg"
+OGG_JUMP    RCDATA    "audio/jump.ogg"
+OGG_ERROR   RCDATA    "audio/error.ogg"
