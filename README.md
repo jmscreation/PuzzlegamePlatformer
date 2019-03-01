@@ -1,7 +1,5 @@
-# Engine
-This is a framework and wrapper for the SFML library that makes creating games easier.
-
-As of right now, there is no documentation. I will eventually provide a video tutorial demonstrating the use of this framework.
+# Puzzlegame Platformer
+This is a game that was designed by the Engine Framework which is a wrapper for the SFML library.
 
 Download 32bit And 64bit Compiler Here
 (This is MinGW32 + MinGW64 7.3.0)
