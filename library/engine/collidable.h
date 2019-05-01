@@ -18,6 +18,8 @@ namespace Engine {
 
         static void beginPosition(float x,float y);
         static BaseCollidable* iteratePosition();
+        static void beginAll();
+        static BaseCollidable* iterateAll();
 
         virtual int type() = 0;
         virtual void move(float dx,float dy) = 0;

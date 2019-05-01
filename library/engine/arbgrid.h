@@ -29,18 +29,24 @@ public:
     void iterateCellBegin(int x,int y);
     T iterateCellNext();
 
+    void iterateAllBegin();
+    T iterateAllNext();
+
 private:
     int size;
 
     struct Item {
         T item;
         ArbGrid::Item* next;
-    } *iterator;
+    } *iterator, *allIterator;
+
     struct Cell {
         int x, y;
         ArbGrid::Item* start;
         ArbGrid::Cell* next;
-    } **grid;
+    } **grid, *allIteratorCell;
+
+    int allIteratorGrid;
 
     Cell *getCell(int x,int y,Cell*** ptr_out=NULL);
     Cell *getExistingCell(int x,int y,Cell*** ptr_out=NULL);

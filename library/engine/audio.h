@@ -80,6 +80,8 @@ namespace Engine {
 		void pause();
 		void stop(bool dest=false);
 
+		bool isPlaying() { return (speed != 0); }
+
 		void pan(float pan) { volPan=pan<-1 ? -1 : pan>1 ? 1 : pan; }
 		float pan() { return volPan; }
 		void volume(float v) { vol=v<0 ? 0 : v; }

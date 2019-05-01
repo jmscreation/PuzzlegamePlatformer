@@ -1,7 +1,7 @@
 #ifndef __ENGINE_H__
 #define __ENGINE_H__
 
-#define ENGINE_VERSION 1099
+#define ENGINE_VERSION 1105
 
 #include <windows.h>
 #define _USE_MATH_DEFINES
@@ -34,6 +34,7 @@
 #include "collidable.h"
 #include "animation.h"
 #include "drawable.h"
+#include "gui.h"
 #include "gameobject.h"
 #include "..\main.h"
 
