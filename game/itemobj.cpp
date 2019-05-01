@@ -47,3 +47,15 @@ void ItemObject::draw(sf::RenderWindow &win, sf::Time &delta){
     if(alpha <= 0) {delete this;return;}
     BaseDrawable::draw(win, delta);//Inherit Draw Event
 }
+
+int ItemObject::get_item() {
+    if(!gather){
+        PuzzleGame &app = PuzzleGame::current();
+        app.soundList.push_back(app.snd_item->play(false));
+        app.soundList.back()->play(app.GameSpeed);
+        gather = true;
+        return item_type;
+    } else {
+        return -1;
+    }
+}

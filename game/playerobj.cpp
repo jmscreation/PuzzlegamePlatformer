@@ -167,7 +167,9 @@ void PlayerObject::keyPress(sf::Event::KeyEvent &key){
 }
 
 void PlayerObject::keyHold(sf::Event::KeyEvent &key){
-    float spd = App::current().delta().asSeconds() * PuzzleGame::current().GameSpeed;
+    PuzzleGame &app = PuzzleGame::current();
+
+    float spd = app.delta().asSeconds() * app.GameSpeed;
     float d = 0;
     if(key.code == sf::Keyboard::Key::Left){
         d = -90;
@@ -190,15 +192,19 @@ void PlayerObject::keyHold(sf::Event::KeyEvent &key){
             case 90:
             case 180:
             case 270:
-                (PuzzleGame::current().snd_swoosh->play())->play(PuzzleGame::current().GameSpeed);
+                app.soundList.push_back(app.snd_swoosh->play(false));
+                app.soundList.back()->play(app.GameSpeed);
                 newdir += 90;
                 newdir = newdir - floor(newdir/360)*360;
             break;
         }
     }
     if(key.code == sf::Keyboard::Key::Up && !jump){
-        float GameSpeed = PuzzleGame::current().GameSpeed;
-        (PuzzleGame::current().snd_jump->play())->play(GameSpeed);
+        float GameSpeed = app.GameSpeed;
+
+        app.soundList.push_back(app.snd_jump->play(false));
+        app.soundList.back()->play(GameSpeed);
+
         vcx += cos((dir+180)*DTR)*750;
         vcy += -sin((dir+180)*DTR)*750;
     }

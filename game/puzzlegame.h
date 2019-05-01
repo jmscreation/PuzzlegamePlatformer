@@ -9,6 +9,7 @@ public:
     Engine::SoundBuffer *snd_item, *snd_music, *snd_jump, *snd_swoosh;
     virtual void screenMode(bool fullscreen);
     virtual bool screenMode();
+    std::vector<Engine::SoundInstance*> soundList;
 
 protected:
     Engine::GameObject* player;

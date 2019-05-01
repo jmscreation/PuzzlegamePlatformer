@@ -5,7 +5,7 @@ class ItemObject: public Engine::GameObject, public Engine::Active {
 public:
     ItemObject(float x, float y);
     virtual int type() { return OBJ_ITEM; }
-    int get_item() {if(!gather){(PuzzleGame::current().snd_item->play())->play(PuzzleGame::current().GameSpeed);gather = true;return item_type;} else return -1;}
+    int get_item();
 
 private:
     static Engine::Animation* animation;

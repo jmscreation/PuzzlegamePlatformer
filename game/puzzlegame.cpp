@@ -6,7 +6,7 @@ using namespace std;
 static sf::Texture* playerTexture, *wallTexture, *itemTexture, *boxTexture;
 
 PuzzleGame::PuzzleGame(): player(NULL), isFullscreen(true), FPS(60), targetGameSpeed(1), GameSpeed(1),
-                        App(640, 480, "PuzzleGame") {
+                        App(640, 480, "PuzzleGame"), soundList({}) {
 
     srand(time(NULL));
     screenMode(false);
@@ -125,7 +125,14 @@ void PuzzleGame::stepBefore(sf::Time &delta){
 }
 
 void PuzzleGame::stepAfter(sf::Time &delta){
-
+    for(SoundInstance* &snd : soundList){
+        if(snd == NULL) continue;
+        if(!snd->isPlaying()) {delete snd; snd = NULL; continue;}
+        snd->play(GameSpeed);
+    }
+    for(unsigned int i=soundList.size();i--;){
+        if(soundList[i] == NULL) soundList.erase(soundList.begin() + i);
+    }
 }
 
 GameObject* PuzzleGame::instancePosition(float xx, float yy){
