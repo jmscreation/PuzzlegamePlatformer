@@ -1,10 +1,10 @@
 # Puzzlegame Platformer
 This is a game that was designed by the Engine Framework which is a wrapper for the SFML library.
 
-Download 32bit And 64bit Compiler Here
-(This is MinGW32 + MinGW64 7.3.0)
+Download 32bit And 64bit Compilers Here
+(This is MinGW32 + MinGW64 7.3.0 + 9.2.0)
 
-https://drive.google.com/file/d/1eP2pXOpo5BoWE7jLX24OWZvxNyXDGaJx/view?usp=sharing
+https://drive.google.com/drive/folders/1WPynZRhfQ73q2lGU1es5IduNChDuE-Of?usp=sharing
 
 Find the Engine repository here: https://github.com/jmscreation/Engine
 
