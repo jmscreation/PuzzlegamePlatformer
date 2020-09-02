@@ -1,7 +1,7 @@
 #ifndef __ENGINE_H__
 #define __ENGINE_H__
 
-#define ENGINE_VERSION 1105
+#define ENGINE_VERSION 1111
 
 #include <windows.h>
 #define _USE_MATH_DEFINES
@@ -24,6 +24,7 @@
 #include "dialog.h"
 #include "audio.h"
 #include "arbgrid.h"
+#include "arblist.h"
 #include "sortlist.h"
 #include "view.h"
 #include "mask.h"
@@ -31,6 +32,7 @@
 #include "app.h"
 #include "inputhandler.h"
 #include "active.h"
+#include "identifiable.h"
 #include "collidable.h"
 #include "animation.h"
 #include "drawable.h"

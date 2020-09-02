@@ -8,6 +8,8 @@ static sf::Texture* playerTexture, *wallTexture, *itemTexture, *boxTexture;
 PuzzleGame::PuzzleGame(): player(NULL), isFullscreen(true), FPS(60), targetGameSpeed(1), GameSpeed(1),
                         App(640, 480, "PuzzleGame"), soundList({}) {
 
+
+
     srand(time(NULL));
     screenMode(false);
     setWindowTransparency(0);
@@ -105,6 +107,13 @@ void PuzzleGame::stepBefore(sf::Time &delta){
         alpha++;
         setWindowTransparency(255*alpha/100);
     }
+
+    /*BaseCollidable::beginAll();
+    while(ItemObject* o = (ItemObject*)BaseCollidable::iterateAll()){
+        if(o->type() != OBJ_ITEM) continue;
+        if(!o->alpha) delete o;
+    }*/
+
     static sf::Clock timer;
     view().setCenter(player->x(), player->y());
     view().setRotation(270-((PlayerObject*)player)->dir);
@@ -116,7 +125,6 @@ void PuzzleGame::stepBefore(sf::Time &delta){
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
         for(int i=0;i<=100;i++){
-            //MoveWindow(window().getSystemHandle(), rand()%1048, rand()%800, rand()%1024, rand()%768, true);
             setWindowTransparency(255*(100-i)/100);
             Sleep(5);
         }
@@ -126,13 +134,22 @@ void PuzzleGame::stepBefore(sf::Time &delta){
 
 void PuzzleGame::stepAfter(sf::Time &delta){
     for(SoundInstance* &snd : soundList){
-        if(snd == NULL) continue;
-        if(!snd->isPlaying()) {delete snd; snd = NULL; continue;}
+        if(snd == nullptr) continue;
+        if(!snd->isPlaying()) {delete snd; snd = nullptr; continue;}
         snd->play(GameSpeed);
     }
-    for(unsigned int i=soundList.size();i--;){
-        if(soundList[i] == NULL) soundList.erase(soundList.begin() + i);
+    unsigned int i=soundList.size();
+    while(i--) if(soundList[i] == nullptr) soundList.erase(soundList.begin() + i);
+
+    static sf::Clock spawn;
+    if(spawn.getElapsedTime().asSeconds() > 1){
+        spawn.restart();
+        int s = 100;
+        float xx = (rand()%s - s/2)*32 + 16, yy = (rand()%s - s/2)*32 + 16;
+        if(instancePosition(xx, yy) != NULL)
+            new ItemObject(xx, yy);
     }
+
 }
 
 GameObject* PuzzleGame::instancePosition(float xx, float yy){

@@ -8,18 +8,50 @@
 namespace Engine {
 
     class Mask;
+    class BaseCollidable;
+
+    class CellIterator {
+        ArbGrid<BaseCollidable*>::CellIterator arbIter;
+
+        friend class BaseCollidable;
+    };
+    class PositionIterator {
+        ArbGrid<BaseCollidable*>::CellIterator arbIter;
+        int cell,x,y;
+
+        friend class BaseCollidable;
+    };
+    class AllIterator {
+        ArbGrid<BaseCollidable*>::AllIterator arbIter;
+
+        friend class BaseCollidable;
+    };
+    class RectIterator {
+        ArbGrid<BaseCollidable*>::CellIterator arbIter;
+        int cell, x,y,w,h;
+        float x1,y1,x2,y2;
+
+        friend class BaseCollidable;
+    };
 
     class BaseCollidable {
         static ArbGrid<BaseCollidable*> grid;
-        static int iterCell, iterX, iterY;
+        static CellIterator defaultCellIter;
+        static PositionIterator defaultPosIter;
+        static AllIterator defaultAllIter;
+        static RectIterator defaultRectIter;
     public:
         BaseCollidable(float x,float y);
         virtual ~BaseCollidable();
 
-        static void beginPosition(float x,float y);
-        static BaseCollidable* iteratePosition();
-        static void beginAll();
-        static BaseCollidable* iterateAll();
+        static void beginCell(float x,float y,CellIterator& iter = defaultCellIter);
+        static BaseCollidable* iterateCell(CellIterator& iter = defaultCellIter);
+        static void beginPosition(float x,float y,PositionIterator& iter = defaultPosIter);
+        static BaseCollidable* iteratePosition(PositionIterator& iter = defaultPosIter);
+        static void beginAll(AllIterator& iter = defaultAllIter);
+        static BaseCollidable* iterateAll(AllIterator& iter = defaultAllIter);
+        static void beginRect(float x1,float y1,float x2,float y2,RectIterator& iter = defaultRectIter);
+        static BaseCollidable* iterateRect(RectIterator& iter = defaultRectIter);
 
         virtual int type() = 0;
         virtual void move(float dx,float dy) = 0;
@@ -28,8 +60,8 @@ namespace Engine {
         virtual void y(float y) = 0;
         virtual float x() = 0;
         virtual float y() = 0;
-        void beginCollision();
-        BaseCollidable* iterateCollidable();
+        void beginCollision(PositionIterator& iter = defaultPosIter);
+        BaseCollidable* iterateCollidable(PositionIterator& iter = defaultPosIter);
 
         Mask* mask;
 

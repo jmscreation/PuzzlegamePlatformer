@@ -11,7 +11,7 @@ namespace Engine {
 		static AudioContext* currentCtx;
 
 		std::vector<SoundInstance*> playlist;
-		std::atomic<bool> locked;
+		sf::Mutex locked;
 		int sampleRate;
 		PaStream* stream;
 	public:

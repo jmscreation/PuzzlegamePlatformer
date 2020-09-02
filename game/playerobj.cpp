@@ -24,6 +24,7 @@ PlayerObject::PlayerObject(float xx, float yy):
     fric = 0.65;
     sfric = 0.95;
     depth(0.6);
+
 }
 
 void PlayerObject::step(sf::Time &delta){
@@ -112,6 +113,7 @@ void PlayerObject::step(sf::Time &delta){
                 break;
         }
     }
+
     beginCollision();
     while(auto obj = iterateCollidable()) {
         if(obj->mask == NULL) continue;
@@ -120,6 +122,18 @@ void PlayerObject::step(sf::Time &delta){
                 {
                     ItemObject& itm = *((ItemObject*)obj);
                     if(!mask->collidesWith(*itm.mask)) continue;
+
+                    PositionIterator It;
+                    beginCollision(It);
+                    while(BaseCollidable* other = iterateCollidable(It)) {
+                        if(other->type() == OBJ_ITEM) {
+                            ItemObject &o = *(ItemObject*)other;
+                            if(abs(o.x() - itm.x()) < 50 && abs(o.y() - itm.y()) < 50) {
+                                o.get_item();
+                                //cout << o.getID() << endl;
+                            }
+                        }
+                    }
                     itm.get_item(); //returns what item you got
                 }
                 break;
