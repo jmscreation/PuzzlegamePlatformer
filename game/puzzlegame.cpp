@@ -80,6 +80,7 @@ PuzzleGame::PuzzleGame(): player(NULL), isFullscreen(true), FPS(60), targetGameS
     view(1).setViewport(sf::FloatRect(0,0,0.5,0.5));
     view(1).setSize(640, 480);
     */
+
 }
 
 PuzzleGame::~PuzzleGame() {
@@ -117,7 +118,7 @@ void PuzzleGame::stepBefore(sf::Time &delta){
     static sf::Clock timer;
     view().setCenter(player->x(), player->y());
     view().setRotation(270-((PlayerObject*)player)->dir);
-    window().setTitle(to_string(1/delta.asSeconds()));
+    window().setTitle(string("GCC " __VERSION__ " ") + to_string(1/delta.asSeconds()));
     if((fabs(GameSpeed-targetGameSpeed) > 0.01) && timer.getElapsedTime().asMilliseconds() > 30){
         GameSpeed += (GameSpeed<targetGameSpeed)?0.01:-0.01;
         playing_music->loop(GameSpeed/1.f);
