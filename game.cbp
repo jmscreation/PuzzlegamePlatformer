@@ -12,10 +12,9 @@
 				<Option compiler="gnu_gcc_920_64bit_compiler" />
 				<Option projectLinkerOptionsRelation="2" />
 				<Compiler>
-					<Add option="-std=c++1z" />
+					<Add option="-std=c++17" />
 					<Add option="-m64" />
 					<Add directory="./library/SFML-2.5.1-64_920/include" />
-					<Add directory="./library/engine" />
 				</Compiler>
 				<Linker>
 					<Add option="-m64" />
@@ -30,8 +29,8 @@
 				<Option compiler="gnu_gcc_920_compiler" />
 				<Option projectLinkerOptionsRelation="2" />
 				<Compiler>
+					<Add option="-std=c++17" />
 					<Add directory="./library/SFML-2.5.1_920/include" />
-					<Add directory="./library/engine" />
 				</Compiler>
 				<Linker>
 					<Add library="./library/libengine-s.a" />
@@ -50,7 +49,6 @@
 					<Add option="-m64" />
 					<Add option="-g" />
 					<Add directory="./library/SFML-2.5.1-64/include" />
-					<Add directory="./library/engine" />
 				</Compiler>
 				<Linker>
 					<Add option="-m64" />
@@ -70,7 +68,6 @@
 					<Add option="-m32" />
 					<Add option="-g" />
 					<Add directory="./library/SFML-2.5.1/include" />
-					<Add directory="./library/engine" />
 				</Compiler>
 				<Linker>
 					<Add option="-m32" />
@@ -85,6 +82,7 @@
 			<Add option="-DSFML_STATIC" />
 			<Add directory="game/" />
 			<Add directory="game" />
+			<Add directory="./library/engine" />
 		</Compiler>
 		<Linker>
 			<Add option="-s" />
@@ -126,9 +124,6 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="main.h" />
 		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
 			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
