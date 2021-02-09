@@ -90,7 +90,7 @@
 			<Add library="sfml-window-s" />
 			<Add library="sfml-system-s" />
 			<Add library="sfml-network-s" />
-			<Add library="uuid" />
+			<Add library="setupapi" />
 			<Add library="winmm" />
 			<Add library="opengl32" />
 			<Add library="gdi32" />
