@@ -2,7 +2,7 @@
 This is a game that was designed by the Engine Framework which is a wrapper for the SFML library.
 
 You can download the GCC 10.2.0 compiler here:
-https://github.com/brechtsanders/winlibs_mingw/releases/tag/10.2.0-11.0.0-8.0.0-r3
+https://github.com/brechtsanders/winlibs_mingw/releases/tag/10.2.0-11.0.0-8.0.0-r7
 
 Find the Engine repository here: https://github.com/jmscreation/Engine
 
